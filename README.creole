@@ -1,3 +1,16 @@
 == Javascript Turtle
 
 with animations
+
+Commands:
+
+* {{{forward(number)}}}  : move the turtle forward by {{{number}}} pixels
+* {{{turnLeft(number)}}} :  turn left by {{{number}}} degrees
+* {{{turnRight(number)}}} : turn right by {{{number}}} degrees
+* {{{moveTo(x,y)}}}      : While drawing, move to the absolute position {{{(x,y)}}} measured form the top-left of the canvas
+* {{{hopTo(x,y)}}}      : Without drawing, move to the absolute position {{{(x,y)}}} measured form the top-left of the canvas 
+* {{{moveBy(x,y)}}}      : While drawing, move to the position {{{(x,y)}}} relative to current position
+* {{{hopTo(x,y)}}}      : Without drawing, move to the position {{{(x,y)}}} relative to current position
+* {{{reset()}}} :  Clean the canvas and move turtle to position {{{(0,0)}}} (top left corner).
+* {{{drawDuration}}} : Variable controlling how fast the animation should go while drawing
+* {{{hopDuration}}}  : Variable controlling how fast the animation should go while turning or hopping.
