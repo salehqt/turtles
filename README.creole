@@ -15,5 +15,5 @@ Commands:
 * {{{drawDuration}}} : Variable controlling how fast the animation should go while drawing
 * {{{hopDuration}}}  : Variable controlling how fast the animation should go while turning or hopping.
 
-The turtle graphic is by [[http://www.clker.com/profile-9.html|Muhammad Ibrahim]]
-{{turtle.svg}}
+The [[turtle.svg|turtle graphic]] is desigend by [[http://www.clker.com/profile-9.html|Muhammad Ibrahim]]
+
