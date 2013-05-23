@@ -8,67 +8,42 @@
 	<meta charset="utf-8" />
 </head>
 <body>
+	<div id="header"><span class='head'>Javascript moving turtle</span>    : write Javascript code to control the turtle and hit <button style="padding-top: 0.1em; padding-bottom: 0.2em;"" id="run" class="btn-inverse">Execute!</button> or type <b>Ctrl-E</b></div>
+   <div id="content">
 	<div id="canvas-container" >
-	<div id="turtle"><img src="turtle.svg" /></div>
+	<div id="turtle"><div id="placeholder"><img src="turtle.svg" /></div></div>
 	<canvas id="drawing-area" ></canvas>
 	</div>
 	<div id="editor-container">
-<div id="editor" ></div>
-<button id="run" type="button" >Run!</button><br/>
-<textarea id="log"></textarea>
+<div id="editor" >// Lines that start with two forward slashes
+// are documentation texts.
+// 
+// Try changing the numbers. 
+// You can also copy and paste lines
+reset();
+drawDuration = 100;
+hopTo(100,100);
+var size = 100;
+
+for(var i = 0;i < 8; i = i + 1)
+{
+    forward(size);
+    turnRight(45);
+}
+hopBy(size/2,size*(.5+Math.sqrt(.5)));
 </div>
+</div>
+	<div id="log-wrapper">
+<textarea id="log" contenteditable="false" disabled="true"></textarea></div>
+	</div>
 <script type="text/javascript" src="js/jquery.min.js" ></script>
-<script type="text/javascript" src="jquery-animate-css-rotate-scale.js" ></script>
+<script type="text/javascript" src="js/jquery-animate-css-rotate-scale.js" ></script>
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="js/bootbox.min.js" ></script>
 <script type="text/javascript" src="js/less.min.js" ></script>
 <script type="text/javascript" src="js/shortcut.js" ></script>
 <script type="text/javascript" src="js/ace/ace.js" ></script>
-
-<script>
-
-jQuery(function(){
-    var editor = ace.edit("editor");
-    editor.setHighlightActiveLine(false);
-    editor.setTheme("ace/theme/clouds");
-    editor.getSession().setMode("ace/mode/javascript");
-    editor.focus();
-    
-    var currentAngle = 0;
-    
-    var t = $("#turtle");
-    var moveBy = function(x,y){
-	var e = t.get()[0];
-	return t.animate({ left : "+=" + x.toString(), top : "+=" + y.toString()});
-    };
-    var forward = function(amount) {
-	amount = amount || 10;
-	var x = Math.cos(currentAngle) * amount;
-	var y = Math.sin(currentAngle) * amount;
-	moveBy(x,y);
-    }
-    var turn = function(amount) {
-	currentAngle += amount * Math.PI / 180;
-	t.animate({ rotate : currentAngle +"rad" });
-    }
-    var turnLeft = function() { turn(90); }
-    var turnRight = function() { turn(-90); }
-    
-    
-    var runFunc = function(){
-	try {
-	  var r = eval(editor.getValue());
-	  var l = $("#log").val();
-	  $("#log").val(l + r  + "\n");
-	} catch(e) {
-	  alert(e);
-	}
-    };
-    
-    shortcut.add("Ctrl+R", runFunc);
-    $("#run").click(runFunc);
-});
-</script>
+<script type="text/javascript" src="index.js" ></script>
 
 </body>
 </html>

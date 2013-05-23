@@ -1,13 +1,53 @@
+@headersize : 3em;
 @editorsize : 40em;
+@mg: 1em;
+
+body {
+  font-family: "Calibri","Verdana",sans-serif; 
+}
+
+div#header {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  right: 0em;
+  height: @headersize -.6em;
+  background: black;
+  color: white;
+  overflow:hidden;
+  padding: .3em @mg;
+  .head {
+    font-size: x-large;
+    font-weight: bold;
+  }
+}
+
+div#content {
+  position: absolute;
+  top: ( @headersize +  @mg);
+  left: @mg;
+  bottom: @mg;
+  right: @mg;
+}
+
+.right-column {
+  position: absolute;
+  width: @editorsize;
+  right: 0em;
+}
 
 div#editor-container {
-  position: absolute;
-  width: (@editorsize - 1em);
-  right: 0em;
+  .right-column;
+  top: 0em;
+  bottom: 10em;
 }
 #editor {
     width: 100%;
-    height: 40em;
+    position: absolute;
+    top: 0em;
+    bottom: 0em;
+    left: 0em;
+    right: 0em;
 }
 
 
@@ -16,23 +56,38 @@ div#canvas-container {
   left: 0em;
   top: 0em;
   bottom: 0em;
-  right: @editorsize;
+  right: (@editorsize + @mg);
     border: 1px solid #aae;
 
 }
 canvas#drawing-area {
-    width: 100%;
-    height: 100%;
+   /* width: 100%;*/
+   /* height: 100%;*/
 }
 
 #turtle {
   display: block;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  img {
+  width: 0em;
+  height: 0em;
+  #placeholder {
     position: relative;
     width: 3em;
-    left: 0.25em;
+    height: 2em;
+    left: -1.25em;
+    top: -1em;
   }
+}
+
+#log-wrapper {
+  .right-column;
+  bottom: 0em;
+  height: 9em;
+}
+#log {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0em;
+  background: white;
 }
