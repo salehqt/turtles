@@ -5,12 +5,20 @@
 	<link rel="stylesheet/less" type="text/css" href="index.less" />
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
+	<meta charset="utf-8" />
 </head>
 <body>
-<canvas id="drawing-area" ></canvas>
+	<div id="canvas-container" >
+	<div id="turtle"><img src="turtle.svg" /></div>
+	<canvas id="drawing-area" ></canvas>
+	</div>
+	<div id="editor-container">
 <div id="editor" ></div>
-
+<button id="run" type="button" >Run!</button><br/>
+<textarea id="log"></textarea>
+</div>
 <script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript" src="jquery-animate-css-rotate-scale.js" ></script>
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="js/bootbox.min.js" ></script>
 <script type="text/javascript" src="js/less.min.js" ></script>
@@ -19,12 +27,46 @@
 
 <script>
 
-qQuery(function(){
+jQuery(function(){
     var editor = ace.edit("editor");
     editor.setHighlightActiveLine(false);
     editor.setTheme("ace/theme/clouds");
-    editor.getSession().setMode("ace/mode/text");
+    editor.getSession().setMode("ace/mode/javascript");
     editor.focus();
+    
+    var currentAngle = 0;
+    
+    var t = $("#turtle");
+    var moveBy = function(x,y){
+	var e = t.get()[0];
+	return t.animate({ left : "+=" + x.toString(), top : "+=" + y.toString()});
+    };
+    var forward = function(amount) {
+	amount = amount || 10;
+	var x = Math.cos(currentAngle) * amount;
+	var y = Math.sin(currentAngle) * amount;
+	moveBy(x,y);
+    }
+    var turn = function(amount) {
+	currentAngle += amount * Math.PI / 180;
+	t.animate({ rotate : currentAngle +"rad" });
+    }
+    var turnLeft = function() { turn(90); }
+    var turnRight = function() { turn(-90); }
+    
+    
+    var runFunc = function(){
+	try {
+	  var r = eval(editor.getValue());
+	  var l = $("#log").val();
+	  $("#log").val(l + r  + "\n");
+	} catch(e) {
+	  alert(e);
+	}
+    };
+    
+    shortcut.add("Ctrl+R", runFunc);
+    $("#run").click(runFunc);
 });
 </script>
 

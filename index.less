@@ -1,0 +1,38 @@
+@editorsize : 40em;
+
+div#editor-container {
+  position: absolute;
+  width: (@editorsize - 1em);
+  right: 0em;
+}
+#editor {
+    width: 100%;
+    height: 40em;
+}
+
+
+div#canvas-container {
+  position: absolute;
+  left: 0em;
+  top: 0em;
+  bottom: 0em;
+  right: @editorsize;
+    border: 1px solid #aae;
+
+}
+canvas#drawing-area {
+    width: 100%;
+    height: 100%;
+}
+
+#turtle {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  img {
+    position: relative;
+    width: 3em;
+    left: 0.25em;
+  }
+}
