@@ -14,3 +14,6 @@ Commands:
 * {{{reset()}}} :  Clean the canvas and move turtle to position {{{(0,0)}}} (top left corner).
 * {{{drawDuration}}} : Variable controlling how fast the animation should go while drawing
 * {{{hopDuration}}}  : Variable controlling how fast the animation should go while turning or hopping.
+
+The turtle graphic is by [[http://www.clker.com/profile-9.html|Muhammad Ibrahim]]
+{{turtle.svg}}
