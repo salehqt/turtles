@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Turtles</title>
+	<link rel="stylesheet/less" type="text/css" href="index.less" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
+</head>
+<body>
+<canvas id="drawing-area" ></canvas>
+<div id="editor" ></div>
+
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="js/bootbox.min.js" ></script>
+<script type="text/javascript" src="js/less.min.js" ></script>
+<script type="text/javascript" src="js/shortcut.js" ></script>
+<script type="text/javascript" src="js/ace/ace.js" ></script>
+
+<script>
+
+qQuery(function(){
+    var editor = ace.edit("editor");
+    editor.setHighlightActiveLine(false);
+    editor.setTheme("ace/theme/clouds");
+    editor.getSession().setMode("ace/mode/text");
+    editor.focus();
+});
+</script>
+
+</body>
+</html>
